@@ -7,11 +7,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { ListarLivroComponent } from './components/listar-livro/listar-livro.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NovoLivroComponent } from './components/novo-livro/novo-livro.component';
+import { HomeComponent } from './components/home/home.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListarLivroComponent
+    ListarLivroComponent,
+    NovoLivroComponent,
+    HomeComponent
   ],
   imports: [
     AppRoutingModule,
@@ -19,7 +25,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule, 
     MatToolbarModule, 
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    MatFormFieldModule, 
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
