@@ -1,1 +1,45 @@
 
+
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  
+    <ng-container matColumnDef="isbn">
+      <th mat-header-cell *matHeaderCellDef>ISBN</th>
+      <td mat-cell *matCellDef="let element">{{element.isbn}}</td>
+    </ng-container>
+  
+ 
+    <ng-container matColumnDef="nome_livro">
+      <th mat-header-cell *matHeaderCellDef>Nome do Livro</th>
+      <td mat-cell *matCellDef="let element">{{element.nome_livro}}</td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="data_lancamento">
+      <th mat-header-cell *matHeaderCellDef>Data do lançamento</th>
+      <td mat-cell *matCellDef="let element">{{element.data_lancamento}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+     <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let element">
+            <div class="demo-button-container">
+                <button mat-raised-button (click)="addData()" class="demo-button">
+                  Adicionar
+                </button>
+                <button
+                    mat-raised-button
+                    [disabled]="!dataSource.length"
+                    (click)="removeData()"
+                    class="demo-button">
+                  Deletar
+                </button>
+              </div>
+        </td>
+      </ng-container>
+  </table>
+  

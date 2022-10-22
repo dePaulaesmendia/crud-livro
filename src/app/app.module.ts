@@ -11,6 +11,7 @@ import { NovoLivroComponent } from './components/novo-livro/novo-livro.component
 import { HomeComponent } from './components/home/home.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatInputModule} from '@angular/material/input';
     AppRoutingModule, 
     MatFormFieldModule, 
     MatInputModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
