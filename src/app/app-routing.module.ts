@@ -7,7 +7,8 @@ import { NovoLivroComponent } from "./components/novo-livro/novo-livro.component
 export const routes: Routes = [
     { path: 'listar-livro', component: ListarLivroComponent}, 
     { path: 'novo-livro', component: NovoLivroComponent},
-    { path: 'home', component: HomeComponent}
+    { path: 'home', component: HomeComponent},
+    { path:'', pathMatch: 'full', redirectTo: 'novo-livro'}
 ]
 
 @NgModule({

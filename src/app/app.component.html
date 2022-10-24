@@ -1,13 +1,12 @@
 <mat-toolbar color="primary">
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <button routerLink="/listar-livro" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <span>Listar Livro</span>
   </button>
-  <button>
+  <button routerLink="/novo-livro">
     <span>Novo Livro</span>
   </button>
 </mat-toolbar>
 
 <h1>Livraria Flor Ocidental</h1>
-<app-novo-livro></app-novo-livro>
-<app-listar-livro></app-listar-livro>
+<router-outlet></router-outlet>

@@ -1,23 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTable} from '@angular/material/table';
+import { Livro } from 'src/app/shared/interfaces/livro.model';
+import { LivrosService} from 'src/app/shared/servicos/livros.service';
 
-
-export interface PeriodicElement {
-  isbn: number;
-  nome_livro: string;
-  data_lancamento: string;
-  acoes: string;
-} 
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {isbn: 14321, nome_livro: 'Projeto Fenix', data_lancamento: '10/6/1994 ', acoes: ''},
-  {isbn: 22432, nome_livro: 'Assim que acaba', data_lancamento: '08/9/1984', acoes: ''},
-  {isbn: 37658, nome_livro: 'Macunaíma', data_lancamento: '20/3/1970', acoes: ''},
-  {isbn: 47612, nome_livro: 'A hora da estrela', data_lancamento: '31/2/1990', acoes: ''},
-  {isbn: 59023, nome_livro: 'Biscoitinho', data_lancamento: '12/11/1865', acoes: ''},
-  {isbn: 65432, nome_livro: 'História da LaLa', data_lancamento: '15/4/1980', acoes: ''},
-  
-];
 
 @Component({
   selector: 'app-listar-livro',
@@ -27,21 +12,25 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ListarLivroComponent implements OnInit {
 
   displayedColumns: string[] = ['isbn', 'nome_livro', 'data_lancamento', 'acoes'];
-  dataSource = [...ELEMENT_DATA];
+  dataSource: Livro[] = [];
 
-  @ViewChild(MatTable) table!: MatTable<PeriodicElement>;
+  @ViewChild(MatTable) table!: MatTable<Livro>;
 
-  constructor() { 
+  constructor(private livroService: LivrosService) { 
   
   }
 
   ngOnInit(): void {
-  }
+    this.livroService.getLivros().subscribe( livros => {
+      this.dataSource = livros
+    });
+  } 
+
 
 
   addData() {
-    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
+    const randomElementIndex = Math.floor(Math.random() * this.dataSource.length);
+    this.dataSource.push(this.dataSource[randomElementIndex]);
     this.table.renderRows();
   }
 
